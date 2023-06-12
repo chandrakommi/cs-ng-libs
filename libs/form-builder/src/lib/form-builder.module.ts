@@ -7,9 +7,10 @@ import { AutoCompleteComponent } from './components/auto-complete/auto-complete.
 import { DateComponent } from './components/date/date.component';
 import { ChipsComponent } from './components/chips/chips.component';
 import { FormBuilderTemplateComponent } from './components/template/template.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [
     FormBuilderComponent,
     InputComponent,

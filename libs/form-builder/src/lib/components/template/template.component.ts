@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cs-ng-template',
+  selector: 'cs-ng-form-builder-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss'],
 })
