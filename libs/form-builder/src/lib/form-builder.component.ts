@@ -1,5 +1,6 @@
-import { keysIn, omit } from '@cs-ng/utils';
+import { keysIn } from '@cs-ng/utils';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FormBuilderBaseComponent } from './form-builder-base.component';
 
 @Component({
@@ -12,8 +13,13 @@ export class FormBuilderComponent
   implements OnInit
 {
   ngOnInit(): void {
-    console.log(keysIn(this.controls));
-    console.log(omit(this.controls, ['controls', 'layout']));
-    
+    this.createFormGroup();
+  }
+
+  createFormGroup() {
+    const controls = this.controls?.controls;
+    keysIn(controls).forEach((key) => {
+      this.formGroup.addControl(key, new FormControl(controls[key]?.value));
+    });
   }
 }

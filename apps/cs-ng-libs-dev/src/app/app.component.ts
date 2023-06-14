@@ -11,9 +11,22 @@ export class AppComponent {
 
   data: FormBuilderControls = {
     controls: {
-      FirstName: {
+      firstName: {
         controlType: ControlType.INPUT,
         placeholder: 'First name',
+        value: '',
+        validationMessages: {},
+      },
+      lastName: {
+        controlType: ControlType.INPUT,
+        placeholder: 'Last name',
+        value: '',
+        validationMessages: {},
+      },
+
+      email: {
+        controlType: ControlType.INPUT,
+        placeholder: 'Email',
         value: '',
         validationMessages: {},
       },

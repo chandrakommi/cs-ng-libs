@@ -8,9 +8,10 @@ import { DateComponent } from './components/date/date.component';
 import { ChipsComponent } from './components/chips/chips.component';
 import { FormBuilderTemplateComponent } from './components/template/template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgcsUtilsModule } from '@cs-ng/utils';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgcsUtilsModule],
   declarations: [
     FormBuilderComponent,
     InputComponent,
