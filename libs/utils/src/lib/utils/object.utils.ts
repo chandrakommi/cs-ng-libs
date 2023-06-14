@@ -1,9 +1,5 @@
 export const keysIn = (object: any) => {
-  const keys: string[] = [];
-  for (const key in object) {
-    keys.push(key);
-  }
-  return keys;
+  return Object.keys(object);
 };
 
 export const omit = <T extends Record<string, unknown>>(
