@@ -17,7 +17,7 @@ export class FormBuilderComponent
   }
 
   createFormGroup() {
-    const controls = this.controls?.controls;
+    const controls = this.controlsObject?.controls;
     keysIn(controls).forEach((key) => {
       this.formGroup.addControl(key, new FormControl(controls[key]?.value));
     });

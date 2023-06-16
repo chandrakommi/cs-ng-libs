@@ -14,7 +14,7 @@ export abstract class FormBuilderBaseComponent implements OnInit {
   @Input() control: FormBuilderControl | undefined;
 
   @Input()
-  controls!: FormBuilderControls;
+  controlsObject!: FormBuilderControls;
 
   @Input() controlType = '';
 

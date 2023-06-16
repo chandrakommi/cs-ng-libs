@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="formGroup">
-    <ng-container *ngIf="controls?.controls as controls">
+    <ng-container *ngIf="controlsObject?.controls as controls">
       <ng-container *ngFor="let key of controls | keysIn">
         <cs-ng-auto-complete
           *ngIf="controls[key].controlType === ControlType.AUTO_COMPLETE"
