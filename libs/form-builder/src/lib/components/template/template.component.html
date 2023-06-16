@@ -1,8 +1,30 @@
-<p>{{formGroup.value | json}}</p>
+<div class="container">
+  <form [formGroup]="formGroup">
+    <ng-container *ngIf="controls?.controls as controls">
+      <ng-container *ngFor="let key of controls | keysIn">
+        <cs-ng-auto-complete
+          *ngIf="controls[key].controlType === ControlType.AUTO_COMPLETE"
+        ></cs-ng-auto-complete>
+        <cs-ng-chips
+          *ngIf="controls[key].controlType === ControlType.CHIPS"
+        ></cs-ng-chips>
+        <cs-ng-date
+          *ngIf="controls[key].controlType === ControlType.DATE"
+        ></cs-ng-date>
+        <cs-ng-input
+          [formGroup]="formGroup"
+          [control]="controls[key]"
+          [key]="key"
+          *ngIf="controls[key].controlType === ControlType.INPUT"
+        ></cs-ng-input>
+        <cs-ng-select
+          *ngIf="controls[key].controlType === ControlType.SELECT"
+        ></cs-ng-select>
+      </ng-container>
+    </ng-container>
+  </form>
+</div>
 
-<p>form builder template workingssss</p>
-<cs-ng-auto-complete></cs-ng-auto-complete>
-<cs-ng-chips></cs-ng-chips>
-<cs-ng-date></cs-ng-date>
-<cs-ng-input></cs-ng-input>
-<cs-ng-select></cs-ng-select>
+<small class="d-block" *ngFor="let key of formGroup.value | keysIn">
+  {{ key }} : {{ formGroup.value[key] | json }}</small
+>

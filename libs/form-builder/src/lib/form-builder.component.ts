@@ -12,7 +12,7 @@ export class FormBuilderComponent
   extends FormBuilderBaseComponent
   implements OnInit
 {
-  ngOnInit(): void {
+  override ngOnInit(): void {
     this.createFormGroup();
   }
 
