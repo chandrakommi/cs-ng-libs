@@ -1,4 +1,11 @@
-<cs-ng-form-builder-template
-  [formGroup]="formGroup"
-  [controlsObject]="controlsObject"
-></cs-ng-form-builder-template>
+<small class="d-block" *ngFor="let key of formGroup.value | keysIn">
+  {{ key }} : {{ formGroup.value[key] | json }}</small
+>
+<div class="container">
+  <form [formGroup]="formGroup">
+    <cs-ng-form-builder-template
+      [formGroup]="formGroup"
+      [controlsObject]="controlsObject"
+    ></cs-ng-form-builder-template>
+  </form>
+</div>
