@@ -13,22 +13,35 @@ export class AppComponent {
     controls: {
       firstName: {
         controlType: ControlType.INPUT,
+        label: 'First name',
         placeholder: 'First name',
         value: '',
         validationMessages: {},
+        inputType: 'string',
       },
       lastName: {
         controlType: ControlType.INPUT,
+        label: 'Last name',
         placeholder: 'Last name',
-        value: '',
+        value: 'kommi',
         validationMessages: {},
+        inputType: 'string',
       },
-
+      PhoneNumber: {
+        controlType: ControlType.INPUT,
+        label: 'Phone Number',
+        placeholder: 'PhoneNumber',
+        value: '8008225665',
+        validationMessages: {},
+        inputType: 'number',
+      },
       email: {
         controlType: ControlType.INPUT,
+        label: 'Last name',
         placeholder: 'Email',
         value: '',
         validationMessages: {},
+        inputType: 'string',
       },
     },
     controlSize: 'sm',
