@@ -1,7 +1,8 @@
-import { keysIn } from '@cs-ng/utils';
+import { FormGroupBuilderService } from './shared/services/form-group-builder.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { FormBuilderBaseComponent } from './form-builder-base.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { isEmpty, isNull } from 'lodash';
 
 @Component({
   selector: 'cs-ng-form-builder',
@@ -12,14 +13,23 @@ export class FormBuilderComponent
   extends FormBuilderBaseComponent
   implements OnInit
 {
-  override ngOnInit(): void {
-    this.createFormGroup();
+  formGroup: FormGroup;
+  constructor(
+    fb: FormBuilder,
+    private _fgBuilderService: FormGroupBuilderService
+  ) {
+    super();
+
+    this.formGroup = fb.group({});
   }
 
-  createFormGroup() {
-    const controls = this.controlsObject?.controls;
-    keysIn(controls).forEach((key) => {
-      this.formGroup.addControl(key, new FormControl(controls[key]?.value));
-    });
+  async ngOnInit(): Promise<void> {
+    await this.createFormGroup();
+  }
+
+  async createFormGroup() {
+    const controlsObj = this.controlsObject?.controls;
+    if (isNull(controlsObj) || isEmpty(controlsObj)) return;
+    this.formGroup = await this._fgBuilderService.createFormGroup(controlsObj);
   }
 }

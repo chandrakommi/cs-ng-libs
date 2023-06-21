@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilderBaseComponent } from '../../form-builder-base.component';
-import { FormBuilder } from '@angular/forms';
+import { FormGroupBuilderService } from '../../shared/services/form-group-builder.service';
 
 @Component({
   selector: 'cs-ng-input',
@@ -8,11 +8,15 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent extends FormBuilderBaseComponent implements OnInit {
-  constructor(_fb: FormBuilder) {
-    super(_fb);
+  constructor(private _formGroupBuilderService: FormGroupBuilderService) {
+    super();
   }
 
-  override ngOnInit(): void {
-    super.ngOnInit();
+  ngOnInit(): void {
+    this._formGroupBuilderService
+      .getFormControl(this.key)
+      .then((formControl) => {
+        this.formControl = formControl;
+      });
   }
 }

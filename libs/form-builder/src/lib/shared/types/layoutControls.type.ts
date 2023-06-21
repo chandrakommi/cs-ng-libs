@@ -1,5 +1,7 @@
-export type LayoutControls = {
-  container: string;
-  label: string;
-  control: string;
-};
+export type LayoutControls = Record<
+  string,
+  {
+    label: string;
+    control: string;
+  }
+>;

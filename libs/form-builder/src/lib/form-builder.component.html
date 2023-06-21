@@ -1,11 +1,23 @@
-<small class="d-block" *ngFor="let key of formGroup.value | keysIn">
-  {{ key }} : {{ formGroup.value[key] | json }}</small
->
-<div class="container">
-  <form [formGroup]="formGroup">
-    <cs-ng-form-builder-template
-      [formGroup]="formGroup"
-      [controlsObject]="controlsObject"
-    ></cs-ng-form-builder-template>
-  </form>
-</div>
+<ng-container *ngIf="controlsObject">
+  <ng-container *ngIf="controlsObject.controls as controlsData">
+    <ng-container *ngIf="controlsObject.layout as rows">
+      <div class="{{ controlsObject.layoutContainer || 'container-fluid' }}">
+        <!-- Rows -->
+
+        <form [formGroup]="formGroup">
+          <ng-container *ngFor="let row of rows | keysIn">
+            <!-- Columns -->
+            <ng-container *ngFor="let column of rows[row] | keysIn">
+              <cs-ng-form-builder-template
+                [control]="controlsData[column]"
+                [key]="column"
+              ></cs-ng-form-builder-template>
+            </ng-container>
+          </ng-container>
+        </form>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<p>{{ formGroup.value | json }}</p>
