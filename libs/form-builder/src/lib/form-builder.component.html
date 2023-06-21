@@ -1,7 +1,4 @@
-<small class="d-block" *ngFor="let key of formGroup.value | keysIn">
-  {{ key }} : {{ formGroup.value[key] | json }}</small
->
-<div class="container">
+<div [class]="controlsObject.layoutContainer || 'container-fluid'">
   <form [formGroup]="formGroup">
     <cs-ng-form-builder-template
       [formGroup]="formGroup"
@@ -9,3 +6,6 @@
     ></cs-ng-form-builder-template>
   </form>
 </div>
+<span class="container d-block" *ngFor="let key of formGroup.value | keysIn">
+  {{ key | json }} : {{ formGroup.value[key] | json }}
+</span>

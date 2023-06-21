@@ -8,11 +8,20 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent extends FormBuilderBaseComponent implements OnInit {
-  constructor(_fb: FormBuilder) {
-    super(_fb);
+  constructor(fb: FormBuilder) {
+    super(fb);
   }
 
   override ngOnInit(): void {
     super.ngOnInit();
+  }
+
+  onChange() {
+    console.log(this.formControl.value);
+  }
+
+  onBlur($event: FocusEvent) {
+    console.log(event?.target);
+    
   }
 }

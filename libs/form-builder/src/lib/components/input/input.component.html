@@ -6,5 +6,7 @@
     [formControl]="formControl"
     [placeholder]="control?.placeholder"
     [pattern]="''"
+    (change)="onChange()"
+    (blur)="onBlur($event)"
   />
 </div>
