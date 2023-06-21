@@ -27,7 +27,7 @@ export class AppComponent {
         validationMessages: {},
         inputType: 'string',
       },
-      PhoneNumber: {
+      phoneNumber: {
         controlType: ControlType.INPUT,
         label: 'Phone Number',
         placeholder: 'PhoneNumber',
@@ -47,6 +47,27 @@ export class AppComponent {
     controlSize: 'sm',
     validationMessages: {},
     layoutContainer: 'container',
-    layout: {},
+    layout: {
+      row_0: {
+        firstName: {
+          label: 'col-4',
+          control: 'col-6',
+        },
+        lastName: {
+          label: 'col-4',
+          control: 'col-6',
+        },
+      },
+      row_1: {
+        phoneNumber: {
+          label: 'col-4',
+          control: 'col-6',
+        },
+        email: {
+          label: 'col-4',
+          control: 'col-6',
+        },
+      },
+    },
   };
 }
