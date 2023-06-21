@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { FormBuilderBaseComponent } from '../../form-builder-base.component';
 
 @Component({
@@ -8,7 +7,6 @@ import { FormBuilderBaseComponent } from '../../form-builder-base.component';
   styleUrls: ['./template.component.scss'],
 })
 export class FormBuilderTemplateComponent extends FormBuilderBaseComponent {
-  constructor(formBuilder: FormBuilder) {
-    super(formBuilder);
-  }
+
 }
+ 

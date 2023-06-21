@@ -1,16 +1,13 @@
 import { ControlType } from './shared/enums/control-type.enum';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilderControls } from './shared/types/formBuilderControls.type';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { FormBuilderControl } from './shared/types/formBuilderControl.type';
 
 @Component({
   template: '',
 })
-export abstract class FormBuilderBaseComponent implements OnInit {
-  constructor(private _formBuilder: FormBuilder) {
-    this.formGroup = _formBuilder.group({});
-  }
+export abstract class FormBuilderBaseComponent {
   @Input() control: FormBuilderControl | undefined;
 
   @Input()
@@ -20,9 +17,8 @@ export abstract class FormBuilderBaseComponent implements OnInit {
 
   @Input() formControl: FormControl = new FormControl();
 
-  @Input() formGroup: FormGroup;
-
-  @Input() inputType: 'email' | 'number' | 'string' | 'password' = 'string';
+  @Input()
+  inputType: 'email' | 'number' | 'string' | 'password' = 'string';
 
   @Input() key = '';
 
@@ -45,11 +41,4 @@ export abstract class FormBuilderBaseComponent implements OnInit {
   @Input() validationMessages = '';
 
   ControlType = ControlType;
-
-  ngOnInit(): void {
-    this.getFormControl();
-  }
-  getFormControl() {
-    this.formControl = this.formGroup.get(this.key) as FormControl;
-  }
 }

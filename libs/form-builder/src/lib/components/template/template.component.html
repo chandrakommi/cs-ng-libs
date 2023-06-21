@@ -1,19 +1,2 @@
-<ng-container *ngIf="controlsObject?.controls as controls">
-  <ng-container *ngFor="let key of controls | keysIn">
-    <ng-container [ngSwitch]="controls[key].controlType">
-      <cs-ng-auto-complete
-        *ngSwitchCase="ControlType.AUTO_COMPLETE"
-      ></cs-ng-auto-complete>
-      <cs-ng-chips *ngSwitchCase="ControlType.CHIPS"></cs-ng-chips>
-      <cs-ng-date *ngSwitchCase="ControlType.DATE"></cs-ng-date>
-      <cs-ng-input
-        *ngSwitchCase="ControlType.INPUT"
-        [formGroup]="formGroup"
-        [control]="controls[key]"
-        [key]="key"
-      ></cs-ng-input>
-      <cs-ng-select *ngSwitchCase="ControlType.SELECT"></cs-ng-select>
-    </ng-container>
-  </ng-container>
-</ng-container>
-
+<cs-ng-input [control]="control" [key]="key"> </cs-ng-input>
+<hr class="border-primary" />

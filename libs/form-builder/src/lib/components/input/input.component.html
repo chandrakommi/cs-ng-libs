@@ -3,10 +3,7 @@
   <input
     [type]="control?.inputType || 'string'"
     class="form-control"
-    [formControl]="formControl"
     [placeholder]="control?.placeholder"
-    [pattern]="''"
-    (change)="onChange()"
-    (blur)="onBlur($event)"
+    [formControl]="formControl"
   />
 </div>
