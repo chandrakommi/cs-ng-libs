@@ -1,2 +1,10 @@
-<cs-ng-input [control]="control" [key]="key"> </cs-ng-input>
-<hr class="border-primary" />
+<ng-container *ngIf="control">
+  <ng-container [ngSwitch]="control.controlType">
+    <cs-ng-input
+      [control]="control"
+      [key]="key"
+      *ngSwitchCase="ControlType.INPUT"
+    >
+    </cs-ng-input>
+  </ng-container>
+</ng-container>

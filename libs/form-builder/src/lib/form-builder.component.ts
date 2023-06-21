@@ -15,10 +15,10 @@ export class FormBuilderComponent
 {
   formGroup: FormGroup;
   constructor(
-    fb: FormBuilder,
+    private fb: FormBuilder,
     private _fgBuilderService: FormGroupBuilderService
   ) {
-    super();
+    super(_fgBuilderService);
 
     this.formGroup = fb.group({});
   }

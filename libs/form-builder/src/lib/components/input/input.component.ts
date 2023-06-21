@@ -8,15 +8,11 @@ import { FormGroupBuilderService } from '../../shared/services/form-group-builde
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent extends FormBuilderBaseComponent implements OnInit {
-  constructor(private _formGroupBuilderService: FormGroupBuilderService) {
-    super();
+  constructor(formGroupBuilderService: FormGroupBuilderService) {
+    super(formGroupBuilderService);
   }
 
   ngOnInit(): void {
-    this._formGroupBuilderService
-      .getFormControl(this.key)
-      .then((formControl) => {
-        this.formControl = formControl;
-      });
+    super.getFormControl();
   }
 }

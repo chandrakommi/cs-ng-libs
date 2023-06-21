@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { FormBuilderControls } from './shared/types/formBuilderControls.type';
 import { FormControl } from '@angular/forms';
 import { FormBuilderControl } from './shared/types/formBuilderControl.type';
+import { FormGroupBuilderService } from './shared/services/form-group-builder.service';
 
 @Component({
   template: '',
@@ -41,4 +42,14 @@ export abstract class FormBuilderBaseComponent {
   @Input() validationMessages = '';
 
   ControlType = ControlType;
+
+  constructor(private _formGroupBuilderService: FormGroupBuilderService) {}
+
+  getFormControl() {
+    this._formGroupBuilderService
+      .getFormControl(this.key)
+      .then((formControl) => {
+        this.formControl = formControl;
+      });
+  }
 }
