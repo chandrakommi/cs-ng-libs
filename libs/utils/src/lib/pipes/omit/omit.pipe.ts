@@ -1,19 +1,16 @@
-import { isArray, isEmpty, isNil, isNull } from 'lodash';
+import { ValueObject, checkObject, isArray } from '@cs-ng/utils';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'omit',
 })
 export class OmitPipe implements PipeTransform {
-  transform<
-    ValueType extends Record<string, unknown>,
-    ExcludeList extends string | string[]
-  >(value: ValueType, omitList: ExcludeList): any {
-    if (isNil(omitList) || isNull(omitList) || isEmpty(omitList)) return;
+  transform(value: ValueObject, omitList: string[]): any {
+    if (checkObject(value)) return;
 
     const excludeSet = new Set(omitList);
     if (isArray(omitList)) {
-      return Object.keys(value).reduce<any>((result, key) => {
+      return Object.keys(value).reduce<ValueObject>((result, key) => {
         if (!excludeSet.has(key)) {
           result[key] = value[key];
         }

@@ -1,12 +1,25 @@
-export const keysIn = (object: any) => {
-  return Object.keys(object);
+import { ValueObject } from '@cs-ng/utils';
+
+/**
+ * Extracts the keys from a ValueObject and returns them as an array of strings.
+ * @param value - The ValueObject from which to extract the keys.
+ * @returns An array of strings representing the keys of the ValueObject.
+ */
+export const keysIn = (value: ValueObject): string[] => {
+  return Object.keys(value);
 };
 
-export const omit = <T extends Record<string, unknown>>(
-  object: T,
+/**
+ * Creates a new object by excluding specific keys from the original object.
+ * @param object - The original object of type ValueObject.
+ * @param excludeList - An array of strings representing the keys to be excluded.
+ * @returns A new object of type ValueObject without the excluded keys.
+ */
+export const omit = (
+  object: ValueObject,
   excludeList: string[]
-) => {
-  const newObject: Partial<T> = {};
+): ValueObject => {
+  const newObject: Partial<ValueObject> = {};
   for (const key in object) {
     excludeList.includes(key) ? '' : (newObject[key] = object[key]);
   }
