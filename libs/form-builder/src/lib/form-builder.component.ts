@@ -2,7 +2,7 @@ import { FormGroupBuilderService } from './shared/services/form-group-builder.se
 import { Component, OnInit } from '@angular/core';
 import { FormBuilderBaseComponent } from './form-builder-base.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { isEmpty, isNull } from 'lodash';
+import { checkObject } from '@cs-ng/utils';
 
 @Component({
   selector: 'cs-ng-form-builder',
@@ -29,7 +29,7 @@ export class FormBuilderComponent
 
   async createFormGroup() {
     const controlsObj = this.controlsObject?.controls;
-    if (isNull(controlsObj) || isEmpty(controlsObj)) return;
+    if (checkObject(controlsObj)) return;
     this.formGroup = await this._fgBuilderService.createFormGroup(controlsObj);
   }
 }
