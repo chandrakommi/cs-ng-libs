@@ -2,8 +2,21 @@
   <label>{{ control?.label }}</label>
   <input
     [type]="control?.inputType || 'string'"
-    class="form-control"
-    [placeholder]="control?.placeholder"
+    [class.form-control]="true"
+    [class.border]="formControl.errors && formControl.touched"
+    [class.border-danger]="formControl.errors && formControl.touched"
+    [placeholder]="control?.placeholder || ''"
     [formControl]="formControl"
+    [minlength]="control?.validations?.minlength || ''"
+    [maxlength]="control?.validations?.maxlength || ''"
+    [required]="control?.validations?.required || false"
+    [pattern]="control?.validations?.pattern || ''"
   />
+  <small *ngIf="formControl.errors && formControl.touched" class="text-danger">
+    <ng-container *ngIf="control?.validationMessages as errMsgs">
+      <ng-container *ngIf="errMsgs[keysIn(formControl.errors)[0]] as message">
+        {{ message }}
+      </ng-container>
+    </ng-container>
+  </small>
 </div>

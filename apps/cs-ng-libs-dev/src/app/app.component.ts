@@ -15,9 +15,14 @@ export class AppComponent {
         controlType: ControlType.INPUT,
         label: 'First name',
         placeholder: 'First name',
-        value: '',
-        validationMessages: {},
+        value: 'kkkkakk',
         inputType: 'string',
+        validations: { minlength: 3, maxlength: 5, required: true },
+        validationMessages: {
+          required: 'First name required',
+          minlength: 'Minumum 3 characters required',
+          maxlength: 'Maximum 5 characters allowed',
+        },
       },
       lastName: {
         controlType: ControlType.INPUT,
