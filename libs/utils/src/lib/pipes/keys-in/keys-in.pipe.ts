@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ValueObject } from '../../types/value-object.type';
 
 @Pipe({
   name: 'keysIn',
@@ -10,7 +9,7 @@ export class KeysInPipe implements PipeTransform {
    * @param valueObject - The ValueObject from which to extract the keys.
    * @returns An array of strings representing the keys of the ValueObject.
    */
-  transform(valueObject: ValueObject): string[] {
+  transform(valueObject: any): string[] {
     return Object.keys(valueObject);
   }
 }
