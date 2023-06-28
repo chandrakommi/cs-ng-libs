@@ -15,7 +15,7 @@ export class AppComponent {
         controlType: ControlType.INPUT,
         label: 'First name',
         placeholder: 'First name',
-        value: 'kkkkakk',
+        value: 'Chandrasekhar',
         inputType: 'string',
         validations: { minlength: 3, maxlength: 5, required: true },
         validationMessages: {
@@ -28,8 +28,12 @@ export class AppComponent {
         controlType: ControlType.INPUT,
         label: 'Last name',
         placeholder: 'Last name',
-        value: 'kommi',
-        validationMessages: {},
+        value: '',
+        validations: { minlength: 6, required: true },
+        validationMessages: {
+          required: 'Last name required',
+          minlength: 'Minumum 6 characters required',
+        },
         inputType: 'string',
       },
       phoneNumber: {
@@ -42,10 +46,11 @@ export class AppComponent {
       },
       email: {
         controlType: ControlType.INPUT,
-        label: 'Last name',
-        placeholder: 'Email',
+        label: 'Email',
+        placeholder: 'user@email.com',
         value: '',
-        validationMessages: {},
+        validations: { email: true, required: true },
+        validationMessages: { required: 'Email is required', email:'Invalid email' },
         inputType: 'string',
       },
     },

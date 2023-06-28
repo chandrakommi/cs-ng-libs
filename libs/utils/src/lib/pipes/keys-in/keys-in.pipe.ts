@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ValueObject } from '@cs-ng/utils';
+import { ValueObject } from '../../types/value-object.type';
 
 @Pipe({
   name: 'keysIn',

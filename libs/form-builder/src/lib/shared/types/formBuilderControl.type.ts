@@ -14,6 +14,7 @@ export type FormBuilderControl = {
   title?: string;
   value?: string;
   validations?: {
+    email?: boolean;
     min?: string;
     max?: string;
     minlength?: number;

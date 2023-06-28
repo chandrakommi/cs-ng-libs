@@ -7,6 +7,7 @@
     [class.border-danger]="formControl.errors && formControl.touched"
     [placeholder]="control?.placeholder || ''"
     [formControl]="formControl"
+    [email]="control?.validations?.email || false"
     [minlength]="control?.validations?.minlength || ''"
     [maxlength]="control?.validations?.maxlength || ''"
     [required]="control?.validations?.required || false"
