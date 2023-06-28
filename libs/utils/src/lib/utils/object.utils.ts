@@ -1,4 +1,4 @@
-import { ValueObject } from '@cs-ng/utils';
+import { ValueObject } from '../types/value-object.type';
 
 /**
  * Extracts the keys from a ValueObject and returns them as an array of strings.
