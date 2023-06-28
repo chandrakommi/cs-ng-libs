@@ -1,9 +1,10 @@
 <ng-container *ngIf="control">
   <ng-container [ngSwitch]="control.controlType">
     <cs-ng-input
+      *ngSwitchCase="ControlType.INPUT"
       [control]="control"
       [key]="key"
-      *ngSwitchCase="ControlType.INPUT"
+      [validationMessages]="validationMessages"
     >
     </cs-ng-input>
   </ng-container>

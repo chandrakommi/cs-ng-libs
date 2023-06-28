@@ -9,7 +9,7 @@ import { keysIn } from '@cs-ng/utils';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent extends FormBuilderBaseComponent implements OnInit {
-  keysIn(value: any): any {
+  keysIn(value: any): string[] {
     return keysIn(value);
   }
   constructor(formGroupBuilderService: FormGroupBuilderService) {

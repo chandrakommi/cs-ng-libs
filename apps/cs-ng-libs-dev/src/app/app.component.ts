@@ -50,12 +50,16 @@ export class AppComponent {
         placeholder: 'user@email.com',
         value: '',
         validations: { email: true, required: true },
-        validationMessages: { required: 'Email is required', email:'Invalid email' },
+        validationMessages: {
+          required: 'Email is required',
+        },
         inputType: 'string',
       },
     },
     controlSize: 'sm',
-    validationMessages: {},
+    validationMessages: {
+      email: 'Invalid email',
+    },
     layoutContainer: 'container',
     layout: {
       row_0: {

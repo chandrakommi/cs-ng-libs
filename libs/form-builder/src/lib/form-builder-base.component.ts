@@ -4,6 +4,7 @@ import { FormBuilderControls } from './shared/types/formBuilderControls.type';
 import { FormControl } from '@angular/forms';
 import { FormBuilderControl } from './shared/types/formBuilderControl.type';
 import { FormGroupBuilderService } from './shared/services/form-group-builder.service';
+import { ValueObject } from '@cs-ng/utils';
 
 @Component({
   template: '',
@@ -39,7 +40,7 @@ export abstract class FormBuilderBaseComponent {
 
   @Input() value = '';
 
-  @Input() validationMessages = '';
+  @Input() validationMessages: ValueObject = {};
 
   ControlType = ControlType;
 

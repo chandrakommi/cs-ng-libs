@@ -1,10 +1,8 @@
 <div class="form-group">
-  <label>{{ control?.label }}</label>
+  <label>{{ control?.label || '' }}</label>
   <input
+    class="form-control"
     [type]="control?.inputType || 'string'"
-    [class.form-control]="true"
-    [class.border]="formControl.errors && formControl.touched"
-    [class.border-danger]="formControl.errors && formControl.touched"
     [placeholder]="control?.placeholder || ''"
     [formControl]="formControl"
     [email]="control?.validations?.email || false"
@@ -12,12 +10,26 @@
     [maxlength]="control?.validations?.maxlength || ''"
     [required]="control?.validations?.required || false"
     [pattern]="control?.validations?.pattern || ''"
+    [value]="control?.value || ''"
+    [class.border-danger]="
+      formControl.errors && (formControl.touched || formControl.dirty)
+    "
   />
-  <small *ngIf="formControl.errors && formControl.touched" class="text-danger">
-    <ng-container *ngIf="control?.validationMessages as errMsgs">
-      <ng-container *ngIf="errMsgs[keysIn(formControl.errors)[0]] as message">
-        {{ message }}
+
+  <ng-container *ngIf="formControl.errors as errors">
+    <ng-container *ngFor="let error of errors | keysIn">
+      <ng-container *ngIf="control?.validationMessages?.[error]">
+        <small
+          class="text-danger"
+          >{{control?.validationMessages?.[error]}}</small
+        >
+      </ng-container>
+
+      <ng-container
+        *ngIf="!control?.validationMessages?.[error] && validationMessages[error]"
+      >
+        <small class="text-danger">{{ validationMessages[error] }}</small>
       </ng-container>
     </ng-container>
-  </small>
+  </ng-container>
 </div>
