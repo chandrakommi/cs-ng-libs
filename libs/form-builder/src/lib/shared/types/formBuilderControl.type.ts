@@ -10,9 +10,17 @@ export type FormBuilderControl = {
   formControl?: string;
   inputType: 'email' | 'number' | 'string' | 'password';
   label?: string;
-  pattern?: string;
   placeholder?: string;
   title?: string;
   value?: string;
+  validations?: {
+    email?: boolean;
+    min?: string;
+    max?: string;
+    minlength?: number;
+    maxlength?: number;
+    pattern?: string;
+    required?: boolean;
+  };
   validationMessages?: Record<string, string>;
 };

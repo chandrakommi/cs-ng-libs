@@ -1,5 +1,7 @@
-import { ValueObject, checkObject, isArray } from '@cs-ng/utils';
 import { Pipe, PipeTransform } from '@angular/core';
+import { ValueObject } from '../../types/value-object.type';
+import { checkObject } from '../../utils/null-check.utils';
+import { isArray } from '../../utils/array.utils';
 
 @Pipe({
   name: 'omit',
